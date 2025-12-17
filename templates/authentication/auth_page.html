@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Authentication</title>
+{% endblock head %}
+
+{% block body %}
+<fieldset>
+    <legend>Login</legend>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ login_form.as_p }}
+        <button type="submit" name="login">Login</button>
+    </form>
+
+</fieldset>
+
+<fieldset>
+    <legend>Register</legend>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ register_form.as_p }}
+        <button type='submit' name="register">Register</button>
+    </form>
+
+</fieldset>
+{% endblock %}

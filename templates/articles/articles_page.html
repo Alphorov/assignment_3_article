@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>All Articles</title>
+{% endblock %}
+
+{% block body %}
+
+<div class='top-line'>
+    <h1>New York Times</h1>
+
+    <a href="{% url 'add_article' %}">Add Article</a>
+</div>
+
+{% for article in articles %}
+
+<h3><a href="{% url 'detailed_article' article.id %}">{{ article.title }}</a></h3>
+
+<p>{{ article.body }}</p>
+
+{% endfor %}
+
+{% endblock %}

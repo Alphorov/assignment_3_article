@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Welcome!</title>
+{% endblock %}
+
+{% block body %}
+
+    <div class='top-line'>
+        <h1>Welcome, {{user.first_name}}</h1>
+
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+
+    <fieldset>
+        <legend>User Info</legend>
+
+        <div class='row'>
+            <label for="first_name">First Name:</label>
+            <span id='first_name'>{{user.first_name}}</span>
+        </div>
+
+        <div class='row'>
+            <label for="last_name">Last Name:</label>
+            <span id='last_name'>{{user.last_name}}</span>
+        </div>
+
+        <div class='row'>
+            <label for="email">Email:</label>
+            <span id='email'>{{user.email}}</span>
+        </div>
+
+        <div class='row'>
+            <label for="password">Password:</label>
+            <span id='password'>Not this time ;)</span>
+        </div>
+
+    </fieldset>
+
+    <a href="{% url 'articles'%}">Articles</a>
+
+{% endblock %}

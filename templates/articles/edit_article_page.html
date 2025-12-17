@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+<title>Edit Article</title>
+
+{% endblock %}
+
+{% block body %}
+
+<h1>Edit Article</h1>
+    <form method="POST">
+
+        {% csrf_token %}
+        
+        <div>
+            <label>Title:</label>
+            <input type="text" name="title" value="{{ article.title }}" required>
+        </div>
+        
+        <div>
+            <label>Content:</label>
+            <textarea name="body" required>{{ article.body }}</textarea>
+        </div>
+        
+        <div>
+            <button type="submit">Save Changes</button>
+            <a href="{% url 'detailed_article' article.id %}">Cancel</a>
+        </div>
+    </form>
+</body>
+
+{% endblock %}
